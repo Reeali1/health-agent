@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "health-agent"
+version = "0.1.0"
+description = "System health monitoring agent (disk + service + Slack)"
+authors = [
+    { name = "Reeali" }
+]
+dependencies = [
+    "requests",
+    "python-dotenv"
+]
+
+[project.scripts]
+health-agent = "health_agent.main:main"
+
