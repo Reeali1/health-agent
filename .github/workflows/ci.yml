@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: |
           cd health_agent_pkg
-          pytest
+          python -m pytest
 
       - name: Run health-agent (disk check)
         run: |
