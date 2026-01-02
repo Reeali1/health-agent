@@ -19,11 +19,16 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install package
+      - name: Install package (with dev deps)
         run: |
           python -m pip install --upgrade pip
           cd health_agent_pkg
-          pip install -e .
+          pip install -e ".[dev]"
+      
+      - name: Run tests
+        run: |
+          cd health_agent_pkg
+          pytest
 
       - name: Run health-agent (disk check)
         run: |
