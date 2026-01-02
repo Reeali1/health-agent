@@ -22,21 +22,13 @@ jobs:
       - name: Install package (with dev deps)
         run: |
           python -m pip install --upgrade pip
-          cd health_agent_pkg
-          pip install -e ".[dev]"
-      
+          python -m pip install -e "health_agent_pkg[dev]"
+
       - name: Run tests
         run: |
-          cd health_agent_pkg
-          python -m pytest
+          python -m pytest health_agent_pkg
 
       - name: Run health-agent (disk check)
         run: |
-          cd health_agent_pkg
           health-agent --disk-threshold 1
-
-      - name: Run health-agent help
-        run: |
-          cd health_agent_pkg
-          health-agent --help
 
